@@ -10,6 +10,11 @@ FILESYSTEM_DOMAIN = <%= @filesystem_domain %>
 
 COLLECTOR_HOST = <%= @managers.flatten.join(', ') %>
 
+<% if @uses_connection_broker == true then -%>
+CCB_ADDRESS = $(COLLECTOR_HOST)
+PRIVATE_NETWORK_NAME = <%= @private_network_name -%>
+<% end -%>
+
 <% if @cluster_has_multiple_domains == true then -%>
 TRUST_UID_DOMAIN = True
 <% end -%>
@@ -41,7 +46,7 @@ COLLECTOR.ALLOW_ADVERTISE_MASTER = $(CES), $(CMS), $(WNS)
 COLLECTOR.ALLOW_ADVERTISE_SCHEDD = $(CES)
 COLLECTOR.ALLOW_ADVERTISE_STARTD = $(WNS)
 
-SCHEDD.ALLOW_WRITE = $(USERS), $(CES), $(WNS)
+SCHEDD.ALLOW_WRITE = $(USERS), $(CES)
 
 ALLOW_DAEMON = condor@$(UID_DOMAIN), \
                condor@$(UID_DOMAIN)/*.$(UID_DOMAIN), \
