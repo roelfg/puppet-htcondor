@@ -131,6 +131,7 @@ class htcondor::params {
   $use_kerberos_auth              = hiera('use_kerberos_auth', false)
   $use_claim_to_be_auth           = hiera('use_claim_to_be_auth', false)
   $use_ssl_auth                   = hiera('use_ssl_auth', false)
+  $use_idtokens_auth              = hiera('use_idtokens_auth', false)
   $use_cert_map_file              = hiera('use_cert_map_file', false)
   $use_krb_map_file               = hiera('use_krb_map_file', false)
   $use_pid_namespaces             = hiera('use_pid_namespaces', false)

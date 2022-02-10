@@ -229,6 +229,7 @@ class htcondor (
   $use_cert_map_file              = $htcondor::params::use_cert_map_file,
   $use_krb_map_file               = $htcondor::params::use_krb_map_file,
   $use_ssl_auth                   = $htcondor::params::use_ssl_auth,
+  $use_idtokens_auth              = $htcondor::params::use_idtokens_auth,
   $use_pid_namespaces             = $htcondor::params::use_pid_namespaces,
   $uses_connection_broker         = $htcondor::params::uses_connection_broker,
   $private_network_name           = $htcondor::params::private_network_name,
