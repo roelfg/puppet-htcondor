@@ -39,7 +39,7 @@ class htcondor::params {
   $whole_machine_cpus              = hiera('whole_machine_cpus',8)
   $defrag_requirements             = hiera('defrag_requirements','PartitionableSlot && Offline =!= True && StartJobs =?= True')
 
-  if $facts['os']['family'] == 'RedHat' and $facts['os']['release']['major'] == '7' {
+  if ($facts['os']['family'] == 'RedHat' and $facts['os']['release']['major'] >= '7') or ($facts['os']['family'] == 'Debian' and $facts['os']['release']['major'] >= '10') {
     $htcondor_cgroup_default = '/system.slice/condor.service'
   }
   else{
